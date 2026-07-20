@@ -100,7 +100,7 @@ exports.registerAsArtist = async (req, res) => {
         const password_hash = await bcrypt.hash(password, 10);
 
         const userResult = await client.query(`INSERT INTO users (nome, email, password_hash, tipo) 
-                VALUES ($1, $2, $3, 'artesao')
+                VALUES ($1, $2, $3, 'artista')
                 RETURNING id, nome, email, tipo, created_at`,
             [nome, email, password_hash]);
 
