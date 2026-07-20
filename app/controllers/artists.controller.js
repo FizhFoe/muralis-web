@@ -113,12 +113,12 @@ exports.registerAsArtist = async (req, res) => {
         );
 
         await client.query('COMMIT');
-        res.status(201).json({user, artist: artistResult.rows[0]});
+        res.status(201).json({ user, artist: artistResult.rows[0] });
     } catch (e) {
         await client.query('ROLLBACK');
         // erro 23505 do postgresql
         if (e.code === '23505') {
-            return res.status(409).json({ error: 'Email already in use '});
+            return res.status(409).json({ error: 'Email already in use ' });
         }
         res.status(500).json({ error: e.message });
     } finally {
@@ -127,8 +127,29 @@ exports.registerAsArtist = async (req, res) => {
 }
 
 // POST /api/artists
-// exports.create = async (req, res) => {
-//     try {
+exports.create = async (req, res) => {
+    try {
+        const { user_id, bio, cidade, distrito, foto_perfil, contacto } = req.body;
 
-//     }
-// }
+        if (!user_id)
+            return res.status(400).json({ error: 'user_id is required' });
+
+        const result = await pool.query(`
+                INSERT INTO artists (user_id, bio, cidade, distrito, contacto, verificado)
+                VALUES ($1,$2,$3,$4,$5,false) RETURNING *`,
+            [user_id, bio, cidade, distrito, contacto]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (e) {
+        if (e.code === '23503') {
+            return res.status(409).json({ error: 'user_id does not reference an existing user' });
+        }
+
+        if (e.code === '23505') {
+            return res.status(409).json({ error: 'User already register has an artist' });
+        }
+
+        res.status(500).json({ error: e.message });
+    }
+}
