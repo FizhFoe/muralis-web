@@ -17,6 +17,8 @@
     --color-register: #F7F7F7;
 }
 
+/* #root { width: 1126px } */
+
 body {
     background-color: var(--color-paper);
     color: var(--color-ink);

@@ -8,7 +8,7 @@ router.get('/:id', controller.findOne);
 router.post('/', controller.create);
 // registerAsArtist() -> cria logo artista e utilizador
 router.post('/register/', controller.registerAsArtist);
-// router.put('/:id', controller.update);
+router.put('/:id/edit', controller.update);
 // router.delete('/:id', controller.remove);
 
 module.exports = router;

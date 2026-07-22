@@ -1,10 +1,11 @@
-import SlideShow from "../components/SlideShow";
+import SlideShow from "../components/SlideShow"
+import slides from '../assets/slides'
 
 function Home() {
     return (
-        <div className="container mx-auto">
-            <h1>Página inicio</h1>
-            <SlideShow />
+        <div className="home">
+            <SlideShow slides={slides}/>
+            <h1 className="text-2xl text-center py-6 lowercase">explorar por categoria</h1>
         </div>
     )
 }

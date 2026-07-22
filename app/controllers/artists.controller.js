@@ -153,3 +153,8 @@ exports.create = async (req, res) => {
         res.status(500).json({ error: e.message });
     }
 }
+
+// PUT /api/artists/:id/edit
+exports.update = async (req, res) => {
+    
+}
