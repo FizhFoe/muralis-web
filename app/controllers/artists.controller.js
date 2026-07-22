@@ -124,7 +124,7 @@ exports.registerAsArtist = async (req, res) => {
     } finally {
         client.release();
     }
-}
+};
 
 // POST /api/artists
 exports.create = async (req, res) => {
@@ -152,9 +152,53 @@ exports.create = async (req, res) => {
 
         res.status(500).json({ error: e.message });
     }
-}
+};
 
 // PUT /api/artists/:id/edit
 exports.update = async (req, res) => {
-    
+    try {
+        const allowedFields = ['bio', 'cidade', 'distrito', 'foto_perfil', 'contacto'];
+        const updates = [];
+        const values = [];
+
+        for (const field of allowedFields) {
+            if (req.body[field] !== undefined) {
+                values.push(req.body[field]);
+                updates.push(`${field} = $${values.length}`);
+            }
+        }
+
+        if (updates.length === 0)
+            return res.status(400).json({ error: 'Sem campos válidos para atualizar' });
+
+        values.push(req.params.id);
+
+        const result = await pool.query(`
+                UPDATE artists
+                SET ${updates.join(', ')}
+                WHERE id = $${values.length} RETURNING *`,
+            values
+        );
+
+        if (result.rows.length === 0)
+            return res.status(404).json({ error: 'Not Found' });
+
+        res.status(201).json(result.rows[0]);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+};
+
+// DELETE /api/artist/:id
+exports.delete = async (req, res) => {
+    try {
+        const result = await pool.query('DELETE FROM artists WHERE id = $1 RETURNING *', [req.params.id]);
+
+        if (result.rows.length === 0)
+            return res.status(404).json({ error: 'Not Found' });
+
+        res.json({ message: 'Deleted sucessfully'});
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
 }

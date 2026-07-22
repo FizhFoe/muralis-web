@@ -67,7 +67,7 @@ export default function SlideShow({ slides, autoPlay = 5000 }) {
                         aria-label={`Ir para: ${slides.title || 'imagem ${i + 1}'}`}
                         aria-current={i === current}
                         className={`h-2.5 rounded-full transition-all ${
-                            i === current ? 'w-6 bg-gray-100' : 'w-2.5 bg-gray-300/50 hover:bg-gray-800/75'
+                            i === current ? 'w-6 bg-gray-100' : 'w-2.5 bg-gray-300/50 hover:bg-gray-300/75'
                         }`}
                     />
                 ))}
