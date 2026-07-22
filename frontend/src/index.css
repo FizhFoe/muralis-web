@@ -13,6 +13,8 @@
 
     --font-display: "Fraunces", serif;
     --font-sans: "Inter", system-ui, sans-serif;
+
+    --color-register: #F7F7F7;
 }
 
 body {
