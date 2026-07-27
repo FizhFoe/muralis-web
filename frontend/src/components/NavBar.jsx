@@ -53,7 +53,7 @@ export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'
 
                 {/* Menu para mobile */}
                 <button onClick={() => setIsOpen(!isOpen)}
-                    className='text-white focus:outline-none md:hidden'>
+                    className='text-black focus:outline-none md:hidden'>
                     {isOpen ? (
                         <span className="material-symbols-outlined">menu_open</span>
                     ) : (
@@ -63,7 +63,7 @@ export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'
 
                 {/* Links de Navegação */}
                 <div className="navbar-links hidden items-center gap-2 md:flex">
-                    {links.map(({ to, label, icon: Icon, iconOnly = false, className = '' }) => (
+                    {links.map(({ to, label, icon: Icon, image, iconOnly = false, className = '' }) => (
                         <Link 
                             key={to} 
                             to={to} 
@@ -71,7 +71,9 @@ export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'
                             aria-label={iconOnly ? label : undefined}
                             title={iconOnly ? label : undefined}
                         >
-                            {Icon && <Icon size={18} className="navbar-link-icon" />}
+                            {image ? (<img src={image} alt={label} className='h-8 w-8' />) : (
+                                Icon && <Icon size={18} className="navbar-link-icon" />
+                            )}
                             {!iconOnly && label}
                         </Link>
                     ))}

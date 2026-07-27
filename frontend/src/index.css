@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-paper: #f5f0e6;
+    --color-paper: #f7f6f4;
     --color-ink: #2a2420;
     --color-azulejo: #2b4c6f;
     --color-azulejo-dark: #1d3650;
@@ -14,12 +14,14 @@
     --font-display: "Fraunces", serif;
     --font-sans: "Inter", system-ui, sans-serif;
 
-    --color-register: #F7F7F7;
+    --color-register: #e5e5e5;
 }
 
 /* #root { width: 1126px } */
 
 body {
+    margin: 0;
+    overflow-x: hidden;
     background-color: var(--color-paper);
     color: var(--color-ink);
 }
