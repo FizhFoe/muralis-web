@@ -39,7 +39,7 @@ import { Link } from 'react-router';
 //     );
 // }
 
-export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'} }) {
+export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis' } }) {
     // const BrandIcon = brand.icon;
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -47,7 +47,7 @@ export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'
             <div className="container mx-auto flex justify-between items-center">
                 <Link to={brand.to} className='navbar-brand flex items-center gap-2.5'>
                     <span className='font-display text-xl font-semibold text-ink uppercase md:text-3xl'>
-                        {brand.label}     
+                        {brand.label}
                     </span>
                 </Link>
 
@@ -63,17 +63,17 @@ export default function NavBar({ links = [], brand = { to: '/', label: 'Muralis'
 
                 {/* Links de Navegação */}
                 <div className="navbar-links hidden items-center gap-2 md:flex">
-                    {links.map(({ to, label, icon: Icon, image, iconOnly = false, className = '' }) => (
-                        <Link 
-                            key={to} 
-                            to={to} 
-                            className={`navbar-link ${className}`.trim()}
+                    {links.map(({ to, label, icon: Icon, iconOnly = false, className = '' }) => (
+                        <Link
+                            key={to}
+                            to={to}
+                            className={`text-gray-500 ${className}`.trim()}
                             aria-label={iconOnly ? label : undefined}
                             title={iconOnly ? label : undefined}
                         >
-                            {image ? (<img src={image} alt={label} className='h-8 w-8' />) : (
-                                Icon && <Icon size={18} className="navbar-link-icon" />
-                            )}
+                            {                            
+                                Icon && <Icon stroke-width={3} className="navbar-link-icon w-8 h-8 text-gray-500 hover:text-orange-500" />
+                            }
                             {!iconOnly && label}
                         </Link>
                     ))}
