@@ -1,11 +1,16 @@
 import SlideShow from "../components/SlideShow"
+import CategoriesList from "../components/CategoriesList"
+import FreguesiasList from "../components/Freguesias"
 import slides from '../assets/slides'
 import ceramica from '../assets/images/ceramica/ceramica-03.jpg'
 import SearchIcon from '../assets/icons/search-icon.svg?react'
 import FilterIcon from '../assets/icons/filter-icon.svg?react'
 import LocationIcon from '../assets/icons/location-icon.svg?react'
+import { useState } from "react"
 
 function Home() {
+    const [categoryId, setCategoryId] = useState('');
+    const [freguesia, setFreguesia] = useState('')
     return (
         <div className="home">
             <SlideShow slides={slides} />
@@ -25,16 +30,16 @@ function Home() {
                         <input type="text" placeholder="pesquisa o nome do artista" className="w-full ml-2" />
                     </div>
                     <div className="categoria bg-register rounded-full w-full p-3 flex flex-row">
-                        <label htmlFor="category-filter">
+                        <label htmlFor="categories">
                             <FilterIcon className="h-7 w-7" />
                         </label>
-                        <select name="category-filter" id="category-filter" placeholder="categoria" className="w-full ml-2">
-                            <option value="ceramica">Cerâmica</option>
-                        </select>
+                        <CategoriesList value={categoryId} onChange={setCategoryId} placeholder="categorias" className="w-full ml-2 rounded focus:outline-none text-gray-400" />
                     </div>
-                    <div className="localizacao bg-register rounded-full w-full p-3 ">
-                        <LocationIcon className="h-7 w-7" />
-
+                    <div className="localizacao bg-register rounded-full w-full p-3 flex flex-row">
+                        <label htmlFor="freguesias">
+                            <LocationIcon className="h-7 w-7" />
+                        </label>
+                        <FreguesiasList value={freguesia} onChange={setFreguesia} placeholder="freguesias" className="w-full ml-2 rounded focus:outline-none text-gray-400"/>
                     </div>
                 </div>
             </div>
@@ -43,7 +48,7 @@ function Home() {
             <div className="categorias flex flex-row justify-evenly md:w-[90%] gap-10 mx-auto p-6 flex-wrap">
 
                 <div className="categoria-block">
-                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64 hover:border-amber-700" />
+                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64 hover:border--2 hover:border-amber-700" />
                 </div>
                 <div className="categoria-block">
                     <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64" />
