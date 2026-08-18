@@ -21,5 +21,6 @@ app.get('/', (req, res) => {
 app.use('/api/artists', artistsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/categories', categoriesRoutes);
+app.use('/uploads', express.static('public/uploads'))
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

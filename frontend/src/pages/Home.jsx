@@ -2,7 +2,6 @@ import SlideShow from "../components/SlideShow"
 import CategoriesList from "../components/CategoriesList"
 import FreguesiasList from "../components/Freguesias"
 import slides from '../assets/slides'
-import ceramica from '../assets/images/ceramica/ceramica-03.jpg'
 import SearchIcon from '../assets/icons/search-icon.svg?react'
 import FilterIcon from '../assets/icons/filter-icon.svg?react'
 import LocationIcon from '../assets/icons/location-icon.svg?react'
@@ -10,7 +9,8 @@ import { useState } from "react"
 
 function Home() {
     const [categoryId, setCategoryId] = useState('');
-    const [freguesia, setFreguesia] = useState('')
+    const [freguesia, setFreguesia] = useState('');
+    const [search, setSearch] = useState('');
     return (
         <div className="home">
             <SlideShow slides={slides} />
@@ -27,38 +27,73 @@ function Home() {
                         <label htmlFor="artist-name">
                             <SearchIcon className="h-7 w-7" />
                         </label>
-                        <input type="text" placeholder="pesquisa o nome do artista" className="w-full ml-2" />
+                        <input
+                            id="artist-name" type="text" value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder="pesquisa o nome do artista"
+                            className="w-full ml-2"
+                        />
                     </div>
                     <div className="categoria bg-register rounded-full w-full p-3 flex flex-row">
                         <label htmlFor="categories">
                             <FilterIcon className="h-7 w-7" />
                         </label>
-                        <CategoriesList value={categoryId} onChange={setCategoryId} placeholder="categorias" className="w-full ml-2 rounded focus:outline-none text-gray-400" />
+                        <CategoriesList
+                            value={categoryId}
+                            onChange={setCategoryId}
+                            placeholder="categorias"
+                            className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none bg-register lowercase ${categoryId ? "text-font" : "text-gray-400"} appearance-none pointer`}
+                        />
                     </div>
                     <div className="localizacao bg-register rounded-full w-full p-3 flex flex-row">
                         <label htmlFor="freguesias">
                             <LocationIcon className="h-7 w-7" />
                         </label>
-                        <FreguesiasList value={freguesia} onChange={setFreguesia} placeholder="freguesias" className="w-full ml-2 rounded focus:outline-none text-gray-400"/>
+                        <FreguesiasList
+                            value={freguesia}
+                            onChange={setFreguesia}
+                            placeholder="freguesias"
+                            className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none ${freguesia ? "text-font" : "text-gray-400"} lowercase appearance-none truncate`}
+                        />
                     </div>
                 </div>
             </div>
 
             {/* Categorias */}
-            <div className="categorias flex flex-row justify-evenly md:w-[90%] gap-10 mx-auto p-6 flex-wrap">
+            <div className="relative md:w-[90%] mx-auto">
+                {/* fade */}
+                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-linear-to-r from-bg to-transparent pointer" />
 
-                <div className="categoria-block">
-                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64 hover:border--2 hover:border-amber-700" />
-                </div>
-                <div className="categoria-block">
-                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64" />
-                </div>
-                <div className="categoria-block">
-                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64" />
-                </div>
-                <div className="categoria-block">
-                    <img src={ceramica} alt="thumbnail ceramica" className="rounded-4xl size-34 md:size-64" />
-                </div>
+                {/* Categorias */}
+
+                {/* <div className="categorias flex flex-row flex-nowrap gap-10 overflow-x-auto p-6 scrollbar-none">
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                    <div className="categoria-block shrink-0">
+                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
+                    </div>
+                </div> */}
+
+                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 bg-linear-to-r from-paper to-transparent" />
             </div>
         </div>
     )

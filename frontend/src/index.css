@@ -16,10 +16,16 @@
 
     --color-register: #e5e5e5;
     --color-current: #898b8d;
-    --color-font: #494949;
+    --text-font: #494949;
 }
 
 /* #root { width: 1126px } */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 
 body {
@@ -28,4 +34,11 @@ body {
     background-color: var(--color-paper);
     color: var(--color-font);
     font-family: var(--font-display);
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+    background-size: 18px;
 }
