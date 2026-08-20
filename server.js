@@ -6,6 +6,7 @@ const pool = require('./app/config/db.config');
 const artistsRoutes = require('./app/routes/artists.routes')
 const usersRoutes = require('./app/routes/users.routes')
 const categoriesRoutes = require('./app/routes/categories.routes')
+const path = require('path')
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.get('/', (req, res) => {
 app.use('/api/artists', artistsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/categories', categoriesRoutes);
-app.use('/uploads', express.static('public/uploads'))
+app.use('/uploads', express.static(path.join(__dirname, '/frontend/public', 'uploads')));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

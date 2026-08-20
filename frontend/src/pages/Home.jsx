@@ -6,6 +6,7 @@ import SearchIcon from '../assets/icons/search-icon.svg?react'
 import FilterIcon from '../assets/icons/filter-icon.svg?react'
 import LocationIcon from '../assets/icons/location-icon.svg?react'
 import { useState } from "react"
+import CategoriesCards from "../components/CategoriesCards"
 
 function Home() {
     const [categoryId, setCategoryId] = useState('');
@@ -61,39 +62,9 @@ function Home() {
 
             {/* Categorias */}
             <div className="relative md:w-[90%] mx-auto">
-                {/* fade */}
-                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-linear-to-r from-bg to-transparent pointer" />
 
                 {/* Categorias */}
-
-                {/* <div className="categorias flex flex-row flex-nowrap gap-10 overflow-x-auto p-6 scrollbar-none">
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                    <div className="categoria-block shrink-0">
-                        <img src={ceramica} alt="thumbnail ceramica" className="w-36 h-26 md:w-54 md:h-54 rounded-4xl object-cover" />
-                    </div>
-                </div> */}
-
-                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 bg-linear-to-r from-paper to-transparent" />
+                <CategoriesCards />
             </div>
         </div>
     )
