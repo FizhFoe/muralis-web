@@ -24,7 +24,7 @@ function Home() {
                 </div>
 
                 <div className="filtros py-6 px-15 flex flex-row flex-wrap md:flex-nowrap justify-evenly gap-4 md:w-[85%] mx-auto">
-                    <div className="artista-nome bg-register rounded-full w-full p-3 flex flex-row">
+                    <div className="artista-nome bg-register rounded-full w-full p-3 flex flex-row items-center">
                         <label htmlFor="artist-name">
                             <SearchIcon className="h-7 w-7" />
                         </label>
@@ -35,7 +35,7 @@ function Home() {
                             className="w-full ml-2"
                         />
                     </div>
-                    <div className="categoria bg-register rounded-full w-full p-3 flex flex-row">
+                    <div className="categoria bg-register rounded-full w-full p-3 flex flex-row items-center">
                         <label htmlFor="categories">
                             <FilterIcon className="h-7 w-7" />
                         </label>
@@ -46,7 +46,7 @@ function Home() {
                             className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none bg-register lowercase ${categoryId ? "text-font" : "text-gray-400"} appearance-none pointer`}
                         />
                     </div>
-                    <div className="localizacao bg-register rounded-full w-full p-3 flex flex-row">
+                    <div className="localizacao bg-register rounded-full w-full p-3 flex flex-row items-center">
                         <label htmlFor="freguesias">
                             <LocationIcon className="h-7 w-7" />
                         </label>
@@ -61,9 +61,7 @@ function Home() {
             </div>
 
             {/* Categorias */}
-            <div className="relative md:w-[90%] mx-auto">
-
-                {/* Categorias */}
+            <div className="md:w-[90%] mx-auto">
                 <CategoriesCards />
             </div>
         </div>

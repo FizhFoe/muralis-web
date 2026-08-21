@@ -63,42 +63,44 @@ export default function CategoriesCards() {
     if (categorias.length === 0) return null;
 
     return (
-        <div className="w-full flex items-center gap-4">
-            {/* botão anterior */}
-            <button
-                className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
-                onClick={scrollPrev}
-                disabled={prevButtonDisabled}>
-                <ChevronLeft size={14} />
-            </button>
+        <div className="">
+            <div className="w-full flex items-center gap-4">
+                {/* botão anterior */}
+                <button
+                    className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
+                    onClick={scrollPrev}
+                    disabled={prevButtonDisabled}>
+                    <ChevronLeft size={14} />
+                </button>
 
-            {/* Carrossel */}
-            <div className="my-15 overflow-hidden cursor-pointer" ref={emblaRef}>
-                <div className="flex">
-                    {categorias.map((categoria) => (
-                        <div key={categoria.id} className="rounded-xl flex-none w-1/2 md:w-1/3 xl:w-1/5">
-                            <div className="relative w-34 h-34 lg:w-54 lg:h-54 rounded-[2.4rem] flex justify-center items-center overflow-hidden group">
-                                <img src={categoria.image} alt={categoria.title} className="w-75 h-75 object-cover object-bottom" />
+                {/* Carrossel */}
+                <div className="my-15 overflow-hidden flex-1 min-w-0" ref={emblaRef}>
+                    <div className="flex">
+                        {categorias.map((categoria) => (
+                            // <div key={categoria.id} className="rounded-xl flex-none w-1/2 md:w-1/3 xl:w-1/5 ">
+                            <div key={categoria.id} className="flex-none w-1/2 md:w-1/3 xl:w-1/4 px-2 md:px-7 ">
+                                <div className="relative aspect-square rounded-[2.4rem] overflow-hidden group cursor-pointer">
+                                    <img src={categoria.image} alt={categoria.title} className="w-full h-full object-cover" />
 
-                                {/* Título da categoria */}
-                                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-white/0 group-hover:bg-white/85 transition-colors duration-200">
-                                    <p className="w-full text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{categoria.title}</p>
+                                    {/* Título da categoria */}
+                                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-white/0 group-hover:bg-white/85 transition-colors duration-200">
+                                        <p className="w-full text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{categoria.title}</p>
+                                    </div>
                                 </div>
+
                             </div>
-
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
+
+                {/* botão seguinte */}
+                <button
+                    className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
+                    onClick={scrollNext}
+                    disabled={nextButtonDisabled}>
+                    <ChevronRight size={14} />
+                </button>
             </div>
-
-            {/* botão seguinte */}
-            <button
-                className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
-                onClick={scrollNext}
-                disabled={nextButtonDisabled}>
-                <ChevronRight size={14} />
-            </button>
         </div>
-
     )
 }
