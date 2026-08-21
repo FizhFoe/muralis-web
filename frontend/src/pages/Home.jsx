@@ -55,7 +55,7 @@ function Home() {
                             value={freguesia}
                             onChange={setFreguesia}
                             placeholder="freguesias"
-                            // className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none ${freguesia ? "text-font" : "text-gray-400"} lowercase appearance-none truncate`}
+                        // className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none ${freguesia ? "text-font" : "text-gray-400"} lowercase appearance-none truncate`}
                         />
                     </div>
                 </div>
@@ -67,8 +67,20 @@ function Home() {
             </div>
 
             {/* Novidades / Inscrição / Eventos */}
-            <div className="md:w-[90%] flex mx-auto">
-                <BoxCards title={"Novidades"}/>
+            <div className="md:w-[80%] mx-auto mt-5 mb-2">
+                <div className="flex flex-row gap-6 h-87">
+                    <div className="flex-column basis-3/5 h-full">
+                        <BoxCards title={"Novidades"} />
+                    </div>
+                    <div className="basis-2/5 flex flex-col gap-6 h-full">
+                        <div className="flex-1">
+                            <BoxCards title={"Inscrever-me como artista"} />
+                        </div>
+                        <div className="flex-1">
+                            <BoxCards title={"Eventos"} />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
