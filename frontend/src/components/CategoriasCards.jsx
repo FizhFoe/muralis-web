@@ -67,7 +67,7 @@ export default function CategoriesCards() {
             <div className="w-full flex items-center gap-4">
                 {/* botão anterior */}
                 <button
-                    className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
+                    className="shrink-0 flex items-center opacity-0 md:opacity-100 justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors md:disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
                     onClick={scrollPrev}
                     disabled={prevButtonDisabled}>
                     <ChevronLeft size={14} />
@@ -83,8 +83,8 @@ export default function CategoriesCards() {
                                     <img src={categoria.image} alt={categoria.title} className="w-full h-full object-cover" />
 
                                     {/* Título da categoria */}
-                                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-white/0 group-hover:bg-white/85 transition-colors duration-200">
-                                        <p className="w-full text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{categoria.title}</p>
+                                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-white/85 lg:bg-white/0 md:group-hover:bg-white/85 transition-colors duration-200">
+                                        <p className="w-full text-center py-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200">{categoria.title}</p>
                                     </div>
                                 </div>
 
@@ -95,7 +95,7 @@ export default function CategoriesCards() {
 
                 {/* botão seguinte */}
                 <button
-                    className="shrink-0 flex items-center justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
+                    className="shrink-0 flex items-center opacity-0 md:opacity-100 justify-center text-white p-1 rounded-full bg-setas hover:bg-setas transition-colors md:disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
                     onClick={scrollNext}
                     disabled={nextButtonDisabled}>
                     <ChevronRight size={14} />

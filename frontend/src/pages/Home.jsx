@@ -1,12 +1,13 @@
 import SlideShow from "../components/SlideShow"
-import CategoriesList from "../components/CategoriesList"
+import CategoriesList from "../components/CategoriasLista"
 import FreguesiasList from "../components/Freguesias"
+import CategoriesCards from "../components/CategoriasCards"
+import BoxCards from '../components/BoxCards'
 import slides from '../assets/slides'
 import SearchIcon from '../assets/icons/search-icon.svg?react'
 import FilterIcon from '../assets/icons/filter-icon.svg?react'
 import LocationIcon from '../assets/icons/location-icon.svg?react'
 import { useState } from "react"
-import CategoriesCards from "../components/CategoriesCards"
 
 function Home() {
     const [categoryId, setCategoryId] = useState('');
@@ -63,6 +64,11 @@ function Home() {
             {/* Categorias */}
             <div className="md:w-[90%] mx-auto">
                 <CategoriesCards />
+            </div>
+
+            {/* Novidades / Inscrição / Eventos */}
+            <div className="md:w-[90%] flex mx-auto">
+                <BoxCards title={"Novidades"}/>
             </div>
         </div>
     )

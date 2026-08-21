@@ -29,7 +29,7 @@ export default function SlideShow({ slides, autoPlay = 5000 }) {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >
-            <div className="relative h-[80vh] min-h-86 w-full">
+            <div className="relative h-[40vh] md:h-[80vh] min-h-86 w-full">
                 {slides.map((slide, i) => (
                     <div key={slide.image}
                         className={`absolute inset-0 transition-opacity duration-700 
