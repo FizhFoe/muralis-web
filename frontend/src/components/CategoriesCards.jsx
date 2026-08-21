@@ -73,12 +73,12 @@ export default function CategoriesCards() {
             </button>
 
             {/* Carrossel */}
-            <div className="my-15 overflow-hidden" ref={emblaRef}>
+            <div className="my-15 overflow-hidden cursor-pointer" ref={emblaRef}>
                 <div className="flex">
                     {categorias.map((categoria) => (
-                        <div key={categoria.id} className="rounded-xl flex-none w-1/2 md:w-1/5">
-                            <div className="relative w-54 h-54 rounded-[2.4rem] flex justify-center items-center overflow-hidden group">
-                                <img src={categoria.image} alt={categoria.title} className="w-75 h-75 object-cover" />
+                        <div key={categoria.id} className="rounded-xl flex-none w-1/2 md:w-1/3 xl:w-1/5">
+                            <div className="relative w-34 h-34 lg:w-54 lg:h-54 rounded-[2.4rem] flex justify-center items-center overflow-hidden group">
+                                <img src={categoria.image} alt={categoria.title} className="w-75 h-75 object-cover object-bottom" />
 
                                 {/* Título da categoria */}
                                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-white/0 group-hover:bg-white/85 transition-colors duration-200">

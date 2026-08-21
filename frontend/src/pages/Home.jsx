@@ -54,7 +54,7 @@ function Home() {
                             value={freguesia}
                             onChange={setFreguesia}
                             placeholder="freguesias"
-                            className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none ${freguesia ? "text-font" : "text-gray-400"} lowercase appearance-none truncate`}
+                            // className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none ${freguesia ? "text-font" : "text-gray-400"} lowercase appearance-none truncate`}
                         />
                     </div>
                 </div>
