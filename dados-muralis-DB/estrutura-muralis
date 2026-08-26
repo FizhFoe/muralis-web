@@ -1,0 +1,128 @@
+create table users
+(
+    id            serial
+        primary key,
+    nome          varchar(255)                        not null,
+    email         varchar(255)                        not null
+        unique,
+    password_hash text                                not null,
+    tipo          varchar(50)                         not null
+        constraint users_tipo_check
+            check ((tipo)::text = ANY
+                   ((ARRAY ['admin'::character varying, 'base'::character varying, 'artista'::character varying])::text[])),
+    created_at    timestamp default CURRENT_TIMESTAMP not null
+);
+
+alter table users
+    owner to "user";
+
+create table categories
+(
+    id          serial
+        primary key,
+    nome        varchar(100)                        not null
+        unique,
+    descricao   text                                not null,
+    created_at  timestamp default CURRENT_TIMESTAMP not null,
+    imagem_capa varchar(255)
+);
+
+alter table categories
+    owner to "user";
+
+create table freguesias
+(
+    id       serial
+        primary key,
+    nome     varchar(255) not null,
+    concelho varchar(255) not null
+);
+
+alter table freguesias
+    owner to "user";
+
+create table artists
+(
+    id           serial
+        primary key,
+    user_id      integer                             not null
+        unique
+        constraint fk_artist_user
+            references users
+            on delete cascade,
+    bio          text                                not null,
+    foto_perfil  text,
+    verificado   boolean   default false             not null,
+    contacto     varchar(255),
+    created_at   timestamp default CURRENT_TIMESTAMP not null,
+    freguesia_id integer
+        constraint fk_artists_freguesia
+            references freguesias
+);
+
+alter table artists
+    owner to "user";
+
+create table favorites
+(
+    id         serial
+        primary key,
+    user_id    integer                             not null
+        constraint fk_favorite_user
+            references users
+            on delete cascade,
+    artist_id  integer                             not null
+        constraint fk_favorite_artist
+            references artists
+            on delete cascade,
+    created_at timestamp default CURRENT_TIMESTAMP not null,
+    constraint uq_favorite
+        unique (user_id, artist_id)
+);
+
+alter table favorites
+    owner to "user";
+
+create table reviews
+(
+    id         serial
+        primary key,
+    user_id    integer                             not null
+        unique
+        constraint fk_review_user
+            references users
+            on delete cascade,
+    artist_id  integer                             not null
+        unique
+        constraint fk_review_artist
+            references artists
+            on delete cascade,
+    rating     integer                             not null
+        constraint reviews_rating_check
+            check ((rating >= 1) AND (rating <= 5)),
+    comentario text,
+    created_at timestamp default CURRENT_TIMESTAMP not null,
+    constraint uq_review
+        unique (user_id, artist_id)
+);
+
+alter table reviews
+    owner to "user";
+
+create table artist_categories
+(
+    artist_id   integer not null
+        constraint fk_artist_category_artist
+            references artists
+            on delete cascade,
+    category_id integer not null
+        constraint fk_artist_category_category
+            references categories
+            on delete cascade,
+    primary key (artist_id, category_id)
+);
+
+alter table artist_categories
+    owner to "user";
+
+

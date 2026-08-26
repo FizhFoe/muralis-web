@@ -1,0 +1,4 @@
+insert into public.artists (id, user_id, bio, foto_perfil, verificado, contacto, created_at, freguesia_id) values (3, 4, 'Mobiliário e peças decorativas em madeira maciça.', null, true, '914567890', '2026-07-16 15:06:43.736961', null);
+insert into public.artists (id, user_id, bio, foto_perfil, verificado, contacto, created_at, freguesia_id) values (4, 7, 'Trabalho em vidro soprado há 15 anos', null, false, '912567436', '2026-07-20 10:21:37.815371', null);
+insert into public.artists (id, user_id, bio, foto_perfil, verificado, contacto, created_at, freguesia_id) values (5, 8, 'Tecelagem tradicional', null, false, '917890123', '2026-07-20 13:44:04.992292', null);
+insert into public.artists (id, user_id, bio, foto_perfil, verificado, contacto, created_at, freguesia_id) values (8, 2, 'Tecelagem tradicionalllll', null, false, '917890123', '2026-07-23 13:40:38.779126', null);

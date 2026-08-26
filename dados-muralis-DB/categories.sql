@@ -1,0 +1,7 @@
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (9, 'cerâmica', 'Artesões que criam cerâmica', '2026-08-17 22:16:51.064362', '/uploads/categorias/1787005010936.jpg');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (10, 'madeira', 'Artesões que trabalham na madeira', '2026-08-17 22:17:26.405539', '/uploads/categorias/1787005046348.avif');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (11, 'joalharia', 'Artesões que criam jóias', '2026-08-17 22:17:51.973938', '/uploads/categorias/1787005071952.jpg');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (12, 'têxteis', 'Artesões que criam roupa', '2026-08-17 22:18:26.958183', '/uploads/categorias/1787005106890.jpg');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (13, 'pintura e ilustração', 'Artesões que criam pinturas', '2026-08-17 22:19:20.358699', '/uploads/categorias/1787005160494.jpg');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (14, 'escultura', 'Artesões que criam esculturas', '2026-08-17 22:19:39.045054', '/uploads/categorias/1787005179042.jpg');
+insert into public.categories (id, nome, descricao, created_at, imagem_capa) values (15, 'fotografia', 'Artesões que trabalham imagens', '2026-08-17 22:20:06.424384', '/uploads/categorias/1787005206383.jpg');

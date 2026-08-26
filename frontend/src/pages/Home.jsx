@@ -8,6 +8,7 @@ import SearchIcon from '../assets/icons/search-icon.svg?react'
 import FilterIcon from '../assets/icons/filter-icon.svg?react'
 import LocationIcon from '../assets/icons/location-icon.svg?react'
 import { useState } from "react"
+import SobreContainer from "../components/SobreContainer"
 
 function Home() {
     const [categoryId, setCategoryId] = useState('');
@@ -44,7 +45,7 @@ function Home() {
                             value={categoryId}
                             onChange={setCategoryId}
                             placeholder="categorias"
-                            className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none bg-register lowercase ${categoryId ? "text-font" : "text-gray-400"} appearance-none pointer`}
+                            // className={`w-full ml-2 pr-8 rounded outline-none focus:outline-none bg-register lowercase ${categoryId ? "text-font" : "text-gray-400"} appearance-none pointer`}
                         />
                     </div>
                     <div className="localizacao bg-register rounded-full w-full p-3 flex flex-row items-center">
@@ -67,20 +68,25 @@ function Home() {
             </div>
 
             {/* Novidades / Inscrição / Eventos */}
-            <div className="md:w-[80%] mx-auto mt-5 mb-2">
-                <div className="flex flex-row gap-6 h-87">
-                    <div className="flex-column basis-3/5 h-full">
+            <div className="w-[80%] md:w-[85%] mx-auto mt-5 mb-9">
+                <div className="flex flex-col md:flex-row gap-6 md:h-87">
+                    <div className="order-2 md:order-1 md:basis-3/5 h-96 md:h-full">
                         <BoxCards title={"Novidades"} />
                     </div>
-                    <div className="basis-2/5 flex flex-col gap-6 h-full">
-                        <div className="flex-1">
+                    <div className="order-1 md:order-2 md:basis-2/5 flex flex-row md:flex-col gap-6">
+                        <div className="flex-1 h-36 md:h-auto">
                             <BoxCards title={"Inscrever-me como artista"} />
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 h-36 md:h-auto">
                             <BoxCards title={"Eventos"} />
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* Resumo - Sobre */}
+            <div className="">
+                <SobreContainer />
             </div>
         </div>
     )
